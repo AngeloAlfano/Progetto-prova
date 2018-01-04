@@ -5,7 +5,7 @@ import java.util.Scanner;
 import service.Service;
 
 public class Main {
-
+//ciaooooo
 	static Service service = new Service();
 	static Scanner s = new Scanner(System.in);
 
@@ -19,6 +19,7 @@ public class Main {
 		System.out.println("3. Versamento");
 		System.out.println("4. Prelievo");
 		System.out.println("5. Crea nuovo conto");
+		System.out.println("6. Elimina conto");
 		int numero = s.nextInt();
 
 		switch (numero) {
@@ -40,6 +41,10 @@ public class Main {
 			break;
 		case 5:
 			service.creaConto();
+
+			break;
+		case 6:
+			service.eliminaConto();
 
 			break;
 

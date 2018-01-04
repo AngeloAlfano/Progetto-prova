@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 import model.Conto;
@@ -12,6 +13,7 @@ public class Service {
 	ListaUtenti lista = new ListaUtenti();
 	ListaConti listaC = new ListaConti();
 	Scanner s = new Scanner(System.in);
+	Scanner s1 = new Scanner(System.in);
 
 	public ListaUtenti popolaConti() {
 
@@ -170,5 +172,32 @@ public class Service {
 		}
 		return null;
 
+	}
+	
+	public ListaConti eliminaConto(){
+
+		System.out.println("Si desidera eliminare un conto? true/false");
+		boolean b = s.nextBoolean();
+
+		if (b == true) {
+			System.out.println("Scegliere il conto da eliminare, digitando il nome dell'utente desiderato: ");
+			String nome = s1.nextLine();
+			s.close();
+
+			for (Iterator<Conto> iterator = listaC.iterator(); iterator.hasNext();) {
+				Conto c = iterator.next();
+				if (nome.equals(c.getUtente().getNome())) {
+					iterator.remove();
+					System.out.println("Utente: " + c.getUtente() + " rimosso");
+					System.out.println("la nuova lista è:" + listaC);
+				}
+				
+			}
+		}else{
+			System.out.println("Operazione completata, arrivederci");
+
+		}
+		
+		return null;
 	}
 }
